@@ -1,0 +1,132 @@
+
+{% extends 'user/base.html' %}
+{% block content %}
+
+
+<div class="ui inverted segment">
+  <div class="ui top attached tabular menu">
+    <a class="item active" data-tab="first" style="color: #6dffff">تغییر رمز عبور</a>
+    <a class="item" data-tab="second" style="color: #6dffff">انتقال وجه</a>
+    <a class="item" data-tab="third" style="color: #6dffff" id="shaba_gir">شماره حساب و شماره شبا</a>
+    <a class="item" data-tab="forth" style="color: #6dffff" id="remained_money">مانده حساب</a>
+    <a class="item" data-tab="fifth" style="color: #6dffff">گردش حساب</a>
+    <a class="item" data-tab="sixth" style="color: #6dffff">پرداخت قبوض</a>
+    <a class="ui item" id="logout" style="color: #6dffff">خروج</a>
+  </div>
+
+
+  <div class="ui bottom attached tab segment active" data-tab="first">
+  <h4>تغییر رمز عبور</h4>
+  <div class="ui divider"></div>
+  <div class="ui raised segment" style="text-align:center;width:50%;margin:auto">
+    <div class="ui form" id="change_pw_form" >
+      <div class="required field">
+        <label>رمز قبلی</label>
+        <div class="ui left icon input">
+          <input  type="password" id="old_password" name="old_password">
+          <i class="lock icon"></i>
+        </div>
+      </div>
+      <div class="required field">
+        <label>رمز جدید</label>
+        <div class="ui left icon input">
+          <input  type="password" id="change_pw1" name="password1">
+          <i class="lock icon"></i>
+        </div>
+      </div>
+      <div class="required field">
+        <label>تکرار رمز جدید</label>
+        <div class="ui left icon input">
+          <input type="password" id="change_pw2" name="password2">
+          <i class="lock icon"></i>
+        </div>
+      </div>
+      <div class="ui blue submit button" id="change_pw">ثبت</div>
+      <div class="ui error message" id="err"></div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+  <div class="ui bottom attached tab segment " data-tab="second">
+  <h4> انتقال وجه </h4>
+  <div class="ui divider"></div>
+  <div class="ui raised segment" style="text-align:center;width:50%;margin:auto">
+    <div class="ui form" id="transport_form">
+      <div class="required field">
+        <label> شماره حساب خود را وارد کنید </label>
+        <div class="ui left icon input">
+          <input  type="text" id="own_number_account" name="own_number_account">
+          <i class="write icon"></i>
+        </div>
+      </div>
+      <div class="required field">
+        <label>رمز اینترنتی خود را وارد کنید</label>
+        <div class="ui left icon input">
+          <input  type="password" id="pw1" name="password1">
+          <i class="lock icon"></i>
+        </div>
+      </div>
+      <div class="required field">
+        <label>شماره حساب مقصد را وارد  کنید</label>
+        <div class="ui left icon input">
+          <input type="text" id="dest_number_account" name="dest_number_account">
+          <i class="write icon"></i>
+        </div>
+      </div>
+
+      <div class="required field">
+        <label>مبلغ به ریال</label>
+        <div class="ui left icon input">
+          <input type="text" id="transport_money" name="transport_money">
+          <i class="money icon"></i>
+        </div>
+      </div>
+      <div class="ui blue submit button" id="submit_transport">ثبت</div>
+      <div class="ui error message" id="err"></div>
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+  <div class="ui bottom attached tab segment " data-tab="third">
+      <h4>شماره کارت و شماره حساب شبا شما به صورت زیر میباشد</h4>
+      <div class="ui divider"></div>
+      <div class="ui raised segment" style="text-align:center;width:50%;margin:auto">
+        
+        <div class="ui raised segment">
+            <div class="ui top right attached label">شماره کارت شما </div>
+            <h4 id="card_number"></h4>
+        </div>
+      <div class="ui raised segment">
+          <div class="ui top right attached label">شماره حساب شبا شما </div>
+          <h4 id="shaba_number"></h4>
+      </div>
+
+      </div>
+  </div>
+
+
+<div class="ui bottom attached tab segment " data-tab="forth">
+      <h4>مانده حساب</h4>
+      <div class="ui divider"></div>
+      <div class="ui raised segment" style="text-align:center;width:50%;margin:auto">
+        
+        <div class="ui raised segment">
+            <div class="ui top right attached label">مانده حساب شما </div>
+            <h4 id="remained"></h4>
+        </div>
+      
+
+      </div>
+  </div>
+
+</div>
+
+
+{% endblock %}
