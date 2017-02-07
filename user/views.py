@@ -8,12 +8,9 @@ from django.http import JsonResponse
 from main_admin.models import account
 from .models import user_account
 
-def base(request):
-    return render(request,"user/index.html",{})
-
 
 def is_login2(request):
-    if request.method=="POST" and request.user is not None:
+    if request.method=="GET" and request.user is not None:
         if request.user.is_authenticated:
             return HttpResponse(json.dumps({'response': True}), content_type='application/json')
         else:
@@ -21,23 +18,11 @@ def is_login2(request):
 
 
 def logout_user(request):
-	if request.user.is_authenticated:
-		logout(request)
-		return HttpResponse(json.dumps({'response': True}), content_type='application/json')
-	else:
-		return HttpResponse(json.dumps({'response': False}), content_type='application/json')
-
-
-def about_us(request):
-    return render(request,"user/about_us.html",{})
-
-
-def contact_us(request):
-    return render(request,"user/contact_us.html",{})
-
-
-def profile(request):
-    return render(request,"user/profile.html",{})
+    if request.user.is_authenticated:
+        logout(request)
+        return HttpResponse(json.dumps({'response': True}), content_type='application/json')
+    else:
+        return HttpResponse(json.dumps({'response': False}), content_type='application/json')
 
 
 def change_pw(request):
